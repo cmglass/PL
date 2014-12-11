@@ -1,7 +1,15 @@
-#### Description of Function Annotations
-## as descriped in PEP 3107
+## Description of Function Annotations
+### as descriped in PEP 3107
 
-The function annotations addition is largely considered  “a work in progress” or “a kind of experiment”.  It was something that the community created libraries in the past to accomplish and PEP 3107 is an attempt to give a standardized method of implementing many of the features implemented by the community in python 2. 
+While there significant dissagreementa about the usefulness of Funciton Annotations as described in PEP 3107 whith some people shurgging it off as insignificant
+>I still think function annotations are a “meh” feature of Python 3. Without a clear definition in the PEP of how to use them
+>- Andrew Montalenti, Aug 16,2014 [7] 
+
+While others think this ability greatly improves the ones ability to write effective code.
+>Coming from an academic background, I can tell you that annotations have proved themselves invaluable for enabling smart static analyzers for languages like Java.
+>- Username: Uri Jun 14,2010 [8]
+
+The opponents to the feature seem complain that they don't know how to use it, however it seems the expressed pupose of this change was to create a vehicle for community creativity in how they use this standardized annotation system[1]. However the syntax chosen does leave it rather open ended
 
 The annotations are created by placing a colon after a parameter followed by a valid expression. The parameter – expression pairs are stored in a map called func_annotations (now just '__annotations__' since python 3.2), with the parameter being the key.
 
@@ -22,7 +30,7 @@ The parameters keep the same restrictions as before with one exception.  The str
 
 While this opens up the opportunity for many things such as query mapping, adapter patterns, IDE readability and analysis, foreign language communication, and predicate logic, the most prevelant use is for type checking. Which can be done using a simple ```isinstance() ``` call 
 	
-```python
+````python
 def function(a:int,b:str,c:bool)->returnval:
 	for key val in function.func_annotations:
 		if(isinstance(key,val)):
@@ -65,3 +73,5 @@ tfplist		   ::= tfpdef (',' tfpdef)* [',']
 ````
 
 The new grammar maintains the decorator functionality same as before which will become essential for type checking and function overloading as it allows for automation. However the funcdef has changed and the paramater_list has been replaced with typedargslist which is defined as a paramerater with the option of a default values (defined in arglist by the ['=' test]) and the optional annotation (defined in tname)
+
+[8] Uri. "What Are Good Python Uses for Python3's Function Annotations?" Stack Overflow. 14 Jun. 2010. Web. h<ttp://stackoverflow.com/questions/3038033/what-are-good-uses-for-python3s-function-annotations>
