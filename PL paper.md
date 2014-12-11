@@ -3,15 +3,15 @@
 
 While there significant dissagreementa about the usefulness of Funciton Annotations as described in PEP 3107 whith some people shurgging it off as insignificant
 >I still think function annotations are a “meh” feature of Python 3. Without a clear definition in the PEP of how to use them
->-Andrew Montalenti, Aug 16,2014 [7] 
+> -Andrew Montalenti, Aug 16,2014 [7] 
 
 While others think this ability greatly improves the ones ability to write effective code.
 >Coming from an academic background, I can tell you that annotations have proved themselves invaluable for enabling smart static analyzers for languages like Java.
->-Username: Uri Jun 14,2010 [8]
+> -Username: Uri Jun 14,2010 [8]
 
 The opponents to the feature seem complain that they don't know how to use it, however it seems the expressed pupose of this change was to create a vehicle for community creativity in how they use this standardized annotation system[1]. However the syntax chosen does leave it rather open ended
 
-The annotations are created by placing a colon after a parameter followed by a valid expression. The parameter – expression pairs are stored in a map called func_annotations (now just ''''__annotations__'''' since python 3.2), with the parameter being the key.
+The annotations are created by placing a colon after a parameter followed by a valid expression. The parameter – expression pairs are stored in a map called func_annotations (now just `__annotations__` since python 3.2), with the parameter being the key.
 
 ````python
 def function(a:annotaion,b:annotation)->returnval:
