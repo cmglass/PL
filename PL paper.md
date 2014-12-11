@@ -33,6 +33,7 @@ def function(a:int,b:str,c:bool)->returnval:
 Consequently type checking and automation of the process opens the door for function overloading by means of type, which allows you to limit the type of parameters more effectively.
 
 ### grammar
+python 2 grammar
 ````python
 decorated      ::=  decorators (classdef | funcdef)						
 decorators     ::=  decorator+	
@@ -48,8 +49,8 @@ sublist        ::=  parameter ("," parameter)* [","]
 parameter      ::=  identifier | "(" sublist ")"
 funcname       ::=  identifier
 ````
-
-````python line-numbers
+python 3 grammar
+````python
 decorators	   ::=  '@' dotted_name [ '(' [arglist] ')' ] NEWLINE
 decorator	   ::=  decorator+
 funcdef		   ::=  [decorators] 'def' NAME parameters ['->' test] ':' suite
@@ -63,4 +64,4 @@ tfpdef		   ::= tname | '(' tfplist ')'
 tfplist		   ::= tfpdef (',' tfpdef)* [',']
 ````
 
-The new grammar maintains the decorator functionality same as before which will become essential for type checking and function overloading as it allows for automation. However the funcdef has changed and the paramater_list has been replaced with typedargslist which is the same as the
+The new grammar maintains the decorator functionality same as before which will become essential for type checking and function overloading as it allows for automation. However the funcdef has changed and the paramater_list has been replaced with typedargslist which is defined as a paramerater with the option of a default values (defined in arglist by the ['=' test]) and the optional annotation (defined in tname)
